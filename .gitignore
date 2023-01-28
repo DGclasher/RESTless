@@ -2,3 +2,4 @@
 venv/*
 backend/restless/*/__pycache__/*
 backend/restless/*/migrations/*
+backend/restless/static/*
