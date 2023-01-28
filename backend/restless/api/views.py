@@ -1,12 +1,33 @@
-from django.shortcuts import render
-from django.http import JsonResponse
 from quotes.models import *
-import json
+from django.forms.models import model_to_dict
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from quotes.serializers import *
+from rest_framework import viewsets
 
-def api_home(request, *args, **kwargs):
-    quote=Quotes.objects.all().order_by("?").first()
+@api_view(["GET"])
+def api_quotes(request, *args, **kwargs):
+    instance=Quotes.objects.all().order_by("?").first()    
     data={}
-    data['quote'] = quote.quote
-    data['author'] = quote.author
+    if instance:
+        data = QuoteSerializer(instance).data
+    return Response(data)
 
-    return JsonResponse(data)
+@api_view(["POST","GET"])
+def api_author(request, *args, **kwargs):
+    obj = request.GET
+    data={}
+    if(obj.get('name') and obj.get('id')):
+        return Response({'detail':'Only allowed to send name or id, not both'})
+    elif(obj.get('name')):
+        ath = Author.objects.get(name=obj.get('name'))
+    elif(obj.get('id')):
+        ath = Author.objects.get(id=obj.get('id'))
+    else:
+        return Response({'detail':'unknown parameter'})
+
+    data['name'] = ath.name
+    data['quotes'] = list(ath.quotes_set.all().values())
+    return Response(data)
+   
+    
