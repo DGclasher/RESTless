@@ -2,10 +2,10 @@
 
 ## Django REST Framework
 
+## Technologies used
++ Django
++ Django Rest Framework (DRF)
 
-## Install the requirements
-```
-pip install -r requirements.txt
-``` 
-
+### [Contribution guidelines](docs/CONTRIBUTE.md)
+### [API docs](docs/api.md)
 
