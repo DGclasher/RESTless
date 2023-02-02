@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static '/frontend/style.css' %}"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <script defer src="{% static '/frontend/app.js' %}"></script>
+
+    <title>restless {% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+    
+    <nav>
+      <div class="logo"><h1>RESTless</h1></div>
+      <div class="openMenu"><i class="fa fa-bars"></i></div>
+      <ul class="mainMenu">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">Docs</a></li>
+        <div class="closeMenu"><i class="fa fa-times"></i></div>
+        <span class="icons">
+          <i class="fab fa-github"></i>
+          <i class="fab fa-docs"></i>
+        </span>
+      </ul>
+    </nav>
+
+    {% block body %} 
+    
+    {% endblock body %}
+  </body>
+</html>
