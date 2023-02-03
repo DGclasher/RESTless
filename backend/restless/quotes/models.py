@@ -5,4 +5,4 @@ class Author(models.Model):
 
 class Quotes(models.Model):
     quote=models.CharField(max_length=300)
-    author=models.ForeignKey(Author, on_delete=models.CASCADE)
+    author=models.ForeignKey(Author,related_name="quote_set" ,on_delete=models.CASCADE)
