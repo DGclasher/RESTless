@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'api',
     'quotes',
+    'users',
     'frontend',
     'rest_framework',
     'django.contrib.admin',
@@ -77,10 +78,18 @@ WSGI_APPLICATION = 'restless.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DATABASE_ROUTERS = ('users.dbrouters.MyDBRouter',)
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'users': {
+        'NAME': 'users/users.db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'USER': 'test_user',
+        'PASSWORD': 'test_password'
     }
 }
 
@@ -126,3 +135,7 @@ STATIC_URL = '/frontend/static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'home'
+
+LOGIN_URL = 'login'
