@@ -88,8 +88,8 @@ DATABASES = {
     'users': {
         'NAME': 'users/users.db',
         'ENGINE': 'django.db.backends.sqlite3',
-        'USER': 'test_user',
-        'PASSWORD': 'test_password'
+        'USER': config('USER_DB'),
+        'PASSWORD': config('USER_DB_PASS')
     }
 }
 
