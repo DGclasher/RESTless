@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'users',
     'frontend',
     'rest_framework',
+    'rest_framework.authtoken',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,18 +80,26 @@ WSGI_APPLICATION = 'restless.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASE_ROUTERS = ('users.dbrouters.MyDBRouter',)
+DATABASE_ROUTERS = ('users.dbrouters.MyDBRouter',
+                    'quotes.dbrouters.MyDBRouter',)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
     },
     'users': {
         'NAME': 'users/users.db',
         'ENGINE': 'django.db.backends.sqlite3',
         'USER': 'test_user',
         'PASSWORD': 'test_password'
+    },
+    'quotes': {
+        'NAME': 'quotes/quotes.db',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'USER': 'quote_user',
+        'PASSWORD': 'quo_password'
     }
 }
 
@@ -112,6 +122,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# AUTHENTICATION_BACKENDS = ('api.authentication.TokenAuthentication', )
+
+# Rest Framework Defaults
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissions'
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
