@@ -3,20 +3,11 @@ from rest_framework.response import Response
 from .models import *
 
 
-class QuotesSerializer(serializers.ModelSerializer):
-    author = serializers.CharField(source='author.name')
-
-    class Meta:
-        model = Quotes
-        fields = ('id', 'quote', 'author')
-
-
 class AuthorSerializer(serializers.ModelSerializer):
-    quotes_author = QuotesSerializer(read_only=True, many=True)
 
     class Meta:
         model = Author
-        fields = ('id', 'name', 'quotes_author')
+        fields = ('id', 'name',)
 
     def create(self, validated_data):
         return Author.objects.create(**validated_data)
@@ -26,3 +17,27 @@ class AuthorSerializer(serializers.ModelSerializer):
         instance.id = validated_data.get('id', instance.id)
         instance.save()
         return instance
+
+
+class QuotesSerializer(serializers.ModelSerializer):
+    author = serializers.CharField(source='author.name')
+
+    class Meta:
+        model = Quotes
+        fields = ('id', 'quote', 'author')
+
+
+class QuotesCUDSerializer(serializers.ModelSerializer):
+    author_id = serializers.PrimaryKeyRelatedField(
+        source='author',
+        queryset=Author.objects.all()
+    )
+    author = AuthorSerializer(read_only=True)
+
+    class Meta:
+        model = Quotes
+        fields = [
+            "quote",
+            "author_id",
+            "author",
+        ]
