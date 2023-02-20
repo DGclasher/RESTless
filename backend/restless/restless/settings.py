@@ -90,13 +90,13 @@ DATABASES = {
 
     },
     'users': {
-        'NAME': 'users/users.db',
+        'NAME': '/home/restless/RESTless/backend/restless/users/users.db',
         'ENGINE': 'django.db.backends.sqlite3',
         'USER': config('USER_DB'),
         'PASSWORD': config('USER_DB_PASS')
     },
     'quotes': {
-        'NAME': 'quotes/quotes.db',
+        'NAME': '/home/restless/RESTless/backend/restless/quotes/quotes.db',
         'ENGINE': 'django.db.backends.sqlite3',
         'USER': 'quote_user',
         'PASSWORD': 'quo_password'
