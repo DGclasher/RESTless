@@ -6,7 +6,7 @@
 ### Fetch Quote
 
 <details>
- <summary><code>GET </code><code>/api/fetch/quote/</code></summary>
+ <summary><code>GET</code> <code>/api/fetch/quote/</code></summary>
 
 ##### Parameters
 
@@ -46,12 +46,12 @@
 ##### Example cURL
 ##### For name
 > ```javascript
->  curl "http://restless.pythonanywhere.com/api/fetch/author/?name=Thomas+Edison&format=json"
+>  curl "https://restless.pythonanywhere.com/api/fetch/author/?name=Thomas+Edison&format=json"
 > ```
 
 #### For ID
 > ```javascript
->  curl "http://restless.pythonanywhere.com/api/fetch/author/?id=5&format=json"
+>  curl "https://restless.pythonanywhere.com/api/fetch/author/?id=5&format=json"
 > ```
 
 </details>
@@ -71,7 +71,7 @@
 
 ##### Example cURL
 > ```javascript
->  curl "http://restless.pythonanywhere.com/api/fetch/author/all/?format=json"
+>  curl "https://restless.pythonanywhere.com/api/fetch/author/all/?format=json"
 > ```
 </details>
 
@@ -82,7 +82,7 @@
 ### Create Author
 
 <details>
- <summary><code>POST </code><code>/api/create/author/</code></summary>
+ <summary><code>POST</code> <code>/api/create/author/</code></summary>
 
 ##### Parameters
 
@@ -112,7 +112,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "http://restless.pythonanywher.com/api/create/author/"
+>  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywher.com/api/create/author/"
 > ```
 
 </details>
