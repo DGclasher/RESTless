@@ -41,7 +41,7 @@ class AuthClasses:
     # Create Methods
 
     def create_author(self, name):
-        response = requests.post(
+        response = requests.get(
             base_url+"create/author/", json={"name": name}, headers=self.header)
         return response.text
 
@@ -54,7 +54,7 @@ class AuthClasses:
                 "name": author
             }
         }
-        response = self.session.post(base_url+"create/quote/",
+        response = requests.post(base_url+"create/quote/",
                                      json=json_data, headers=self.header)
         return response.text
 
@@ -82,10 +82,11 @@ fetch_obj = Fetch()
 # password = getpass()
 
 # Fetch
-response = fetch_obj.fetch_author("name", "liya")
+response = fetch_obj.fetch_author("name", "Lucas")
+# response = fetch_obj.fetch_quote()
 
 # Create
-# response = auth_obj.create_author("liya")
+# response = auth_obj.create_author("jack")
 # response = auth_obj.create_quote("doing from client", 109, ath_name)
 # response = auth_obj.create_author("django")
 

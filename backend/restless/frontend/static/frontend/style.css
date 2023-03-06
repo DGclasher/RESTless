@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
     --txtclr:rgb(20, 117, 0);
+    --bgblk: rgb(19, 19, 19);
   }
   body {
     font-family: 'Roboto Mono', monospace;
-    background-color: rgb(19, 19, 19);
+    background-color: var(--bgblk);
     color: white;
   }
   nav {

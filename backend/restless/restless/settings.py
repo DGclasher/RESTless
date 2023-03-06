@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'quotes',
     'users',
     'frontend',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'crispy_forms',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -161,3 +163,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
+
+CORS_ORIGIN_ALLOW_ALL = True
