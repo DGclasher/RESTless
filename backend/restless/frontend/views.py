@@ -4,5 +4,3 @@ from django.http import HttpResponseRedirect
 def home(request):
     return render(request, 'frontend/home.html')
 
-def docs(request):
-    return render(request, "frontend/docs.html")
