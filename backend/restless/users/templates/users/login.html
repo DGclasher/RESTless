@@ -7,28 +7,28 @@
 
 <div>
 
-    <div class="form" style="position: absolute; top: 30%; left: 40%;">
-      <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-     
-          <legend>Login to your bloghub account</legend>
-          {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-          <button type="submit" style="border-radius: 25px; width:120px; height:30px; border: none; background-color: rgb(0, 0, 0); color:white; ">Login</button>
-        </div>
-      </form>
-      <div class="border-top pt-3">
-        <small class="text-muted">
-          Need an account
-          <a href="{% url 'register' %}" class="ml-2">Register</a>
-        </small><br>
-        <small class="text-muted">
-          Forgot Password?
-          <a href="#" class="ml-2">Click Here</a>
-        </small>
+  <div class="form-wrap" style="position: absolute; top: 20%; left: 50%; transform:translateX(-50%)">
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+   
+        <legend>Login to your RESTless account</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" style="border-radius: 25px; width:120px; height:30px; border: none; background-color: rgb(0, 0, 0); color:white; ">Login</button>
       </div>
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        Need an account
+        <a href="{% url 'register' %}" class="ml-2">Register</a>
+      </small><br>
+      <!-- <small class="text-muted">
+        Forgot Password?
+        <a href="#" class="ml-2">Click Here</a>
+      </small> -->
     </div>
+  </div>
 
 </div>
 
