@@ -112,7 +112,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywher.com/api/create/author/"
+>  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywhere.com/api/create/author/"
 > ```
 
 </details>

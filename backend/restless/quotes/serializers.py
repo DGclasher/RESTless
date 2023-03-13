@@ -1,6 +1,6 @@
+from .models import *
 from rest_framework import serializers
 from rest_framework.response import Response
-from .models import *
 
 
 class AuthorSerializer(serializers.ModelSerializer):
