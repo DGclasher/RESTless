@@ -41,7 +41,7 @@ class AuthClasses:
     # Create Methods
 
     def create_author(self, name):
-        response = requests.get(
+        response = requests.post(
             base_url+"create/author/", json={"name": name}, headers=self.header)
         return response.text
 
@@ -55,7 +55,7 @@ class AuthClasses:
             }
         }
         response = requests.post(base_url+"create/quote/",
-                                     json=json_data, headers=self.header)
+                                 json=json_data, headers=self.header)
         return response.text
 
     # Update Methods
@@ -72,6 +72,11 @@ class AuthClasses:
             base_url+"delete/author/"+str(id), headers=self.header)
         return response.text
 
+    def delete_quote(self, id):
+        response = requests.delete(
+            base_url+"delete/quote/"+str(id), headers=self.header)
+        return response.text
+
 
 username = config('TEST_USER')
 password = config('TEST_PASS')
@@ -82,7 +87,7 @@ fetch_obj = Fetch()
 # password = getpass()
 
 # Fetch
-response = fetch_obj.fetch_author("name", "Lucas")
+# response = fetch_obj.fetch_author("name", "unknown")
 # response = fetch_obj.fetch_quote()
 
 # Create
@@ -93,7 +98,8 @@ response = fetch_obj.fetch_author("name", "Lucas")
 # Update
 
 # Delete
-# response = auth_obj.delete_author(109)
+response = auth_obj.delete_author(109)
+# response = auth_obj.delete_quote(1)
 
 data = json.loads(response)
 print(data)

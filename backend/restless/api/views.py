@@ -1,12 +1,16 @@
 import random
 from quotes.models import *
 from quotes.serializers import *
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.decorators import authentication_classes, permission_classes
-from rest_framework import generics, status, mixins, permissions, authentication
 
+class StandardResultSetPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = 'page_size'
+    max_page_size = 50
 
 def pick_random_object():
     return random.randrange(1, Quotes.objects.all().count()+1)
@@ -24,10 +28,21 @@ class QuotesCreateView(generics.CreateAPIView):
     serializer_class = QuotesCUDSerializer
     queryset = Quotes.objects.all()
 
+class QuotesDeleteView(generics.DestroyAPIView):
+    queryset = Quotes.objects.all()
+    serializer_class = QuotesSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if instance.high_auth_quote:
+            return Response({"message" : "Not allowed on that quote"})
+        self.perform_destroy(instance)
+        return Response({"message" : "Quote deleted successfully"})
 
 class AuthorListView(generics.ListAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
+    pagination_class = StandardResultSetPagination
     authentication_classes = []
     permission_classes = []
 
