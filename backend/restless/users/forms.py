@@ -7,8 +7,8 @@ class UserRegisterFrom(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'w-full mt-2 mb-2 py-2 px-6 bg-white rounded-xl text-black', 'placeholder':'johndoe@email.com'}))
     first_name = forms.CharField(max_length=50, widget=forms.Textarea(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 resize-none px-6 bg-white rounded-xl text-black', 'placeholder':'John'}))
     last_name = forms.CharField(max_length=50, widget=forms.Textarea(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 resize-none px-6 bg-white rounded-xl text-black', 'placeholder':'Doe'}))
-    password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 px-6 bg-white rounded-xl text-black'}))
-    password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 px-6 bg-white rounded-xl text-black'}))
+    password1 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 px-6 bg-white rounded-xl text-black'}), label='Password')
+    password2 = forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'class' : 'w-full mt-2 mb-2 h-10 py-2 px-6 bg-white rounded-xl text-black'}), label='Repeat Password')
 
     class Meta:
         model = User
