@@ -36,26 +36,26 @@
       <nav class="flex justify-between items-center w-[92%] mx-auto">
 
         <div class="pt-2.5 text-lg md:text-2xl no-underline px-[-2]">
-          <a href="{% url 'home' %}" class="no-underline hover:text-lime-600">RESTless</a>
+          <a href="{% url 'home' %}" class="no-underline hover:text-lime-600 hover:no-underline">RESTless</a>
         </div>
         <div class="nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-2 pt-3">
           <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
             <li>
-              <a href="https://github.com/DGclasher/RESTless/blob/dev/docs/api.md" class="no-underline hover:text-lime-600" target="_blank">Docs</a>
+              <a href="https://github.com/DGclasher/RESTless/blob/dev/docs/api.md" class="no-underline hover:text-lime-600 hover:no-underline" target="_blank">Docs</a>
             </li>
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'my_account' %}" class="no-underline hover:text-lime-600">Account</a>
+              <a href="{% url 'my_account' %}" class="no-underline hover:text-lime-600 hover:no-underline">Account</a>
             </li>  
             <li>
-              <a href="{% url 'logout' %}" class="no-underline hover:text-lime-600">Logout</a>
+              <a href="{% url 'logout' %}" class="no-underline hover:text-lime-600 hover:no-underline">Logout</a>
             </li>
             {% else %}
             <li>
-              <a href="{% url 'login' %}" class="no-underline hover:text-lime-600">Login</a>
+              <a href="{% url 'login' %}" class="no-underline hover:text-lime-600 hover:no-underline">Login</a>
             </li>
             <li>
-              <a href="{% url 'register' %}" class="no-underline hover:text-lime-600">Register</a>
+              <a href="{% url 'register' %}" class="no-underline hover:text-lime-600 hover:no-underline">Register</a>
             </li>
             {% endif %}
             
@@ -68,19 +68,19 @@
       </header>    
 
     {% block body %} {% endblock body %}
-    <div class="copyright-container absolute bottom-1 left-1 text-sm md:text-base">
+    <div class="copyright-container static md:fixed bottom-1 left-1 text-sm md:text-base">
       <p class="headline text-white">
         &copy;
         <script>
           document.write(new Date().getFullYear());
         </script>
-        DGclasher
+        <a href="https://whoisdg.netlify.app" target="_blank" class="no-underline hover:text-lime-700 hover:no-underline">DGclasher</a>
       </p>
     <script>
       const navLinks = document.querySelector('.nav-links')
       function onToggleMenu(e){
           e.name = e.name === 'menu' ? 'close' : 'menu'
-          navLinks.classList.toggle('top-[4%]')
+          navLinks.classList.toggle('top-[5%]')
       }
   </script>
   </body>
