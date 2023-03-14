@@ -10,41 +10,78 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.usebootstrap.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Custom Style Sheet -->
     <link
       rel="stylesheet"
       type="text/css"
       href="{% static '/frontend/style.css' %}"
     />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <script defer src="{% static '/frontend/app.js' %}"></script>
+    <!-- <script defer src="{% static '/frontend/app.js' %}"></script> -->
 
-    <title>restless {% block title %} {% endblock title %}</title>
+    <title>restless - {% block title %} {% endblock title %}</title>
   </head>
-  <body>
-    <nav>
-      <div class="logo">
-        <a href="{% url 'home' %}" class="nav-link">RESTless</a>
-      </div>
-      <div class="openMenu"><i class="fa fa-bars"></i></div>
-      <ul class="mainMenu">
-        <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
-        <li><a href="https://github.com/DGclasher/RESTless/blob/dev/docs/api.md" target="_blank" class="nav-link">Docs</a></li>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'my_account' %}" class="nav-link">Account</a></li>
-        <li><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-        {% else %}
-        <li><a href="{% url 'login' %}" class="nav-link">Login</a></li>
-        <li><a href="{% url 'register' %}" class="nav-link">Register</a></li>
-        {% endif %}
-        <div class="closeMenu"><i class="fa fa-times"></i></div>
-        <span class="icons">
-          <i class="fab fa-github"></i>
-          <i class="fab fa-docs"></i>
-        </span>
-      </ul>
-    </nav>
+
+  <body class="font-[Poppins] bg-gradient-to-t h-screen bg-zinc-800 text-white">
+    <header class="bg-black h-12 md:h-14 text-white txt-lg">
+      <nav class="flex justify-between items-center w-[92%] mx-auto">
+
+        <div class="pt-2.5 text-lg md:text-2xl no-underline px-[-2]">
+          <a href="{% url 'home' %}" class="no-underline hover:text-lime-600">RESTless</a>
+        </div>
+        <div class="nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-2 pt-3">
+          <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+            <li>
+              <a href="https://github.com/DGclasher/RESTless/blob/dev/docs/api.md" class="no-underline hover:text-lime-600" target="_blank">Docs</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'my_account' %}" class="no-underline hover:text-lime-600">Account</a>
+            </li>  
+            <li>
+              <a href="{% url 'logout' %}" class="no-underline hover:text-lime-600">Logout</a>
+            </li>
+            {% else %}
+            <li>
+              <a href="{% url 'login' %}" class="no-underline hover:text-lime-600">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'register' %}" class="no-underline hover:text-lime-600">Register</a>
+            </li>
+            {% endif %}
+            
+          </ul>
+        </div>
+        <div class="flex items-center gap-6 pt-2.5 md:hidden">
+          <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-xl cursor-pointer md:hidden" id="ham"></ion-icon>
+        </div>
+      </nav>
+      </header>    
 
     {% block body %} {% endblock body %}
+    <div class="copyright-container absolute bottom-1 left-1 text-sm md:text-base">
+      <p class="headline text-white">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        DGclasher
+      </p>
+    <script>
+      const navLinks = document.querySelector('.nav-links')
+      function onToggleMenu(e){
+          e.name = e.name === 'menu' ? 'close' : 'menu'
+          navLinks.classList.toggle('top-[4%]')
+      }
+  </script>
   </body>
 </html>

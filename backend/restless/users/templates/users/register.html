@@ -1,29 +1,18 @@
 {% extends 'frontend/base.html' %}
 {% load crispy_forms_tags %}
-{% block title %}
-    Register
-{% endblock title %}
+
 {% block body %}
 
-<div id="container" style="position: absolute; top: top: 20%; left: 50%;transform: translateX(-50%);">
-    <div class="form-wrap">
-        <h1>Register for printables</h1>
-        <form action="{% url 'register' %}" method="post">
-            {% csrf_token %}
-                <legend class=" text-white border-bottom mb4">Register</legend>
-                {{form|crispy}}
-            </fieldset>
-            <div class="form-group">
-				<button style="border:none; padding:
-                15px; background:white; color: black; border-radius:5px" type="submit">Register</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Already have an account? <a href="{% url 'login' %}" class="ml-2">Log In</a>
-            </small>
-        </div>
-    </div>
+<div class="max-w-lg mx-auto flex flex-wrap p-6">
+<div
+  class="w-full bg-grey-100 p-6 rounded-xl bg-zinc-600 max-w-lg mx-auto flex flex-wrap p-6"
+>
+    <h1 class="text-2xl">Register for RESTless</h1>
+  <form action="{% url 'register' %}" method="post" class="space-y-3">
+    {% csrf_token %}
+    {{ form }}
+    <button class="bg-lime-800 hover:bg-lime-900 text-white rounded-xl px-6 py-2 mt-3">Submit</button>
+  </form>
 </div>
-
+</div>
 {% endblock body %}

@@ -5,31 +5,18 @@
 {% endblock title %} 
 {% block body %}  
 
-<div>
-
-  <div class="form-wrap" style="position: absolute; top: 20%; left: 50%; transform:translateX(-50%)">
-    <form action="{% url 'login' %}" method="post">
-      {% csrf_token %}
-   
-        <legend>Login to your RESTless account</legend>
-        {{ form|crispy }}
-      </fieldset>
-      <div class="form-group">
-        <button type="submit" style="border-radius: 25px; width:120px; height:30px; border: none; background-color: rgb(0, 0, 0); color:white; ">Login</button>
-      </div>
-    </form>
-    <div class="border-top pt-3">
-      <small class="text-muted">
-        Need an account
-        <a href="{% url 'register' %}" class="ml-2">Register</a>
-      </small><br>
-      <!-- <small class="text-muted">
-        Forgot Password?
-        <a href="#" class="ml-2">Click Here</a>
-      </small> -->
-    </div>
+<div class="max-w-lg mx-auto flex flex-wrap p-6">
+  <div class="w-full bg-grey-100 p-6 rounded-xl bg-zinc-600">
+      <h1 class="mb-6 text-2xl">Login</h1>
+      <form action="." method="post" class="space-y-3">
+          {% csrf_token %}
+          {{form}}
+  
+          <div class="">
+              <button class="py-2 px-6 rounded-xl text-white bg-lime-800 hover:bg-lime-900 ">Submit</button>
+          </div>
+      </form>
   </div>
-
-</div>
+  </div>
 
 {% endblock body %}
