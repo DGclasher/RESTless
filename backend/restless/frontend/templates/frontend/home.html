@@ -1,8 +1,18 @@
 {% extends 'frontend/base.html' %}
 {% block title %}
-    - Home
+    Home
 {% endblock title %}
 {% block body %}
-    <h1 class="title">Welcome to RESTless</h1>
+   <div class="pt-3 flex flex-col text-white justify-center items-center h-90 md:h-30 space-y-4 mt-3">
+    <div class="text-xl md:text-2xl">
+        <h1 class="text-3xl">This is RESTless</h1>
+    </div>
+    <div class="flex flex-col items-center w-90 md:w-1/2 text-xl space-y-3">
+        <p>RESTless is a web-based application that generates a random quote every time the user reaches the endpoint. The application is built using Django, a high-level Python web framework that follows the model-view-controller (MVC) architectural pattern.</p>
+        <p>The REST API provides a simple and easy-to-use interface that returns a random quote in JSON format when a GET request is made to the API endpoint. The quotes are sourced from a collection of inspiring and motivational quotes, making it a useful tool for developers who want to add a bit of inspiration to their applications.
+        </p>
+        <p>More to come in future</p>
+    </div>
+   </div>
 
 {% endblock body %}
