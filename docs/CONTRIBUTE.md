@@ -32,4 +32,4 @@
   python manage.py runserver
   ```
 
-## API docs are available [here](api.md)
+#### API docs are available [here](api.md)
