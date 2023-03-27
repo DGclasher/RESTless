@@ -1,7 +1,7 @@
-from django.urls import path, include
-from . import views
 from .views import *
+from . import views
 from rest_framework import routers
+from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
