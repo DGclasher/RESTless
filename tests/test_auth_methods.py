@@ -5,15 +5,17 @@ from decouple import config
 
 ENDPOINT = "http://127.0.0.1:8000/api"
 
-username = config("TEST_USER")
-password = config("TEST_PASS")
 
-response = requests.post(
-    ENDPOINT + "/auth/", json={"username": username, "password": password})
-response = json.loads(response.text)
-token = response["token"]
-header = {"Authorization": f"Token {token}",
-          "Content-Type": "application/json"}
+def initialize():
+    username = config("TEST_USER")
+    password = config("TEST_PASS")
+
+    response = requests.post(
+        ENDPOINT + "/auth/", json={"username": username, "password": password})
+    response = json.loads(response.text)
+    token = response["token"]
+    header = {"Authorization": f"Token {token}",
+              "Content-Type": "application/json"}
 
 
 def get_random_quote_for_testing():
@@ -45,6 +47,7 @@ def create_test_quote(quote, author_name, id):
 
 
 def test_can_create_quote():
+    initialize()
     id, author_name, quote = get_random_quote_for_testing()
     payload = {
         "quote": quote,
@@ -60,6 +63,7 @@ def test_can_create_quote():
 
 
 def test_can_create_author():
+    initialize()
     name = "test author"
     response = requests.post(ENDPOINT + "/create/author/",
                              json={"name": name}, headers=header)
@@ -67,6 +71,7 @@ def test_can_create_author():
 
 
 def test_can_update_author():
+    initialize()
     new_name = "test author"
     response = requests.get(ENDPOINT + "/fetch/author/",
                             params={"name": new_name})
@@ -78,6 +83,7 @@ def test_can_update_author():
 
 
 def test_can_delete_quote():
+    initialize()
     quote = "this is a test quote"
     author = "test author"
     response = requests.get(ENDPOINT + "/fetch/author/",
@@ -96,6 +102,7 @@ def test_can_delete_quote():
 
 
 def test_can_delete_author():
+    initialize()
     response = requests.get(ENDPOINT + "/fetch/author/",
                             params={"name": "test author"})
     response = json.loads(response.text)
