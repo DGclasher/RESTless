@@ -12,3 +12,6 @@ serve:
 serve-bg:
 	cd backend/restless && \
 	python3 manage.py runserver &
+
+test:
+	python3 -m pytest -v
