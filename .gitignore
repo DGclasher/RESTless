@@ -1,7 +1,10 @@
 .env
-venv/*
+venv
+.vscode
 db.sqlite3
-backend/restless/*/__pycache__/*
-backend/restless/*/migrations/*
-backend/restless/static/*
-backend/restless/users/users.db
+.pytest_cache
+**/__pycache__
+**/migrations
+**/users.db
+**/quotes.db
+backend/restless/static

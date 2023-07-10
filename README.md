@@ -19,5 +19,4 @@ Start using the API, docs are [here](docs/api.md)
 
 ## Contribution
 
-If you are passionate about this project and want to make it much more than quotes then you're welcome to contribute.
 #### [Contribution Guidelines](docs/CONTRIBUTE.md)
