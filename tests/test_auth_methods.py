@@ -12,7 +12,8 @@ response = requests.post(
     ENDPOINT + "/auth/", json={"username": username, "password": password})
 response = json.loads(response.text)
 token = response["token"]
-header = {"Authorization": f"Token {token}"}
+header = {"Authorization": f"Token {token}",
+          "Content-Type": "application/json"}
 
 
 def get_random_quote_for_testing():
