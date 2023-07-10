@@ -9,27 +9,22 @@
   git clone git@github.com:[YOUR USERNAME]/RESTless.git
   ```
 
-+ Change your directory to backend/restless
-
-+ Install the requirements
++ Create python virtual environment
   ```
-  pip install -r requirements.txt
-  ```
-
-+ Make the required migrations
-  ```
-  python manage.py makemigrations
+  python3 -m venv venv
   ```
   ```
-  python manage.py migrate
-  ```
-  ```
-  python manage.py migrate --run-syncdb
+  source venv/bin/activate
   ```
 
-+ To run the server
++ Make the setup
   ```
-  python manage.py runserver
+  make setup
   ```
 
-#### API docs are available [here](api.md)
++ Run server
+  ```
+  make serve
+  ```
+
+#### API docs are available [here](./api.md)
