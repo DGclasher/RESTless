@@ -18,3 +18,6 @@ serve-bg:
 
 test:
 	python3 -m pytest -v
+
+stop:
+	kill $(lsof -t -i:8000)

@@ -3,6 +3,7 @@ import random
 import requests
 from decouple import config
 
+
 ENDPOINT = "http://127.0.0.1:8000/api"
 
 
@@ -16,6 +17,7 @@ def initialize():
     token = response["token"]
     header = {"Authorization": f"Token {token}",
               "Content-Type": "application/json"}
+    return header
 
 
 def get_random_quote_for_testing():
@@ -33,7 +35,7 @@ def get_random_quote_for_testing():
     return id, author, quote["quoteText"]
 
 
-def create_test_quote(quote, author_name, id):
+def create_test_quote(quote, author_name, id, header):
     payload = {
         "quote": quote,
         "author_id": id,
@@ -47,7 +49,7 @@ def create_test_quote(quote, author_name, id):
 
 
 def test_can_create_quote():
-    initialize()
+    header = initialize()
     id, author_name, quote = get_random_quote_for_testing()
     payload = {
         "quote": quote,
@@ -63,7 +65,7 @@ def test_can_create_quote():
 
 
 def test_can_create_author():
-    initialize()
+    header = initialize()
     name = "test author"
     response = requests.post(ENDPOINT + "/create/author/",
                              json={"name": name}, headers=header)
@@ -71,7 +73,7 @@ def test_can_create_author():
 
 
 def test_can_update_author():
-    initialize()
+    header = initialize()
     new_name = "test author"
     response = requests.get(ENDPOINT + "/fetch/author/",
                             params={"name": new_name})
@@ -83,14 +85,14 @@ def test_can_update_author():
 
 
 def test_can_delete_quote():
-    initialize()
+    header = initialize()
     quote = "this is a test quote"
     author = "test author"
     response = requests.get(ENDPOINT + "/fetch/author/",
                             params={"name": author})
     response = json.loads(response.text)
     author_id = response["id"]
-    create_test_quote(quote, author, author_id)
+    create_test_quote(quote, author, author_id, header)
     response = requests.get(ENDPOINT+"/fetch/author/",
                             params={"id": author_id})
     response = json.loads(response.text)
@@ -102,7 +104,7 @@ def test_can_delete_quote():
 
 
 def test_can_delete_author():
-    initialize()
+    header = initialize()
     response = requests.get(ENDPOINT + "/fetch/author/",
                             params={"name": "test author"})
     response = json.loads(response.text)
