@@ -116,3 +116,166 @@
 
 </details>
 
+### Create Quote
+
+<details>
+ <summary><code>POST</code> <code>/api/create/quote/</code></summary>
+
+##### Parameters
+
+> None
+
+##### Headers
+
+> | name            |  type     | data type               | description                       |
+> |-----------------|-----------|-------------------------|-----------------------------------|
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+
+
+##### Data
+
+> | name      |  type     | data type               | description                       |
+> |-----------|-----------|-------------------------|-----------------------------------|
+> | `name`    |  required | JSON                    | Specify the name of the author    |
+> | `quote`   |  required | JSON                    | Quote to post                     |
+> | `author_id` | required | JSON                   | ID of author                      |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                            |
+> |---------------|-----------------------------------|-----------------------------------------------------|
+> | `201`         | `application/json`                | `{'quote': '<quote>', 'author_id': <author id>, 'author': {'id': <author id>, 'name': '<author name>'}}`            |
+> | `405`         | `application/json`                | `{'detail': 'Method "<method_name>" not allowed.'}` |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d "{'quote': 'doing from client', 'author_id': 14, 'author': {'id': 14, 'name': 'unknown'}}" "https://restless.pythonanywhere.com/api/create/quote/"
+> ```
+
+</details>
+
+------------------------------------------------------------------------------------------------
+
+## Update Author
+
+### Update Author
+
+<details>
+ <summary><code>PUT</code> <code>/api/update/author/</code></summary>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> | `id`              | required  |   int          | Author's ID                         |
+
+##### Headers
+
+> | name            |  type     | data type               | description                       |
+> |-----------------|-----------|-------------------------|-----------------------------------|
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+
+
+##### Data
+
+> | name      |  type     | data type               | description                       |
+> |-----------|-----------|-------------------------|-----------------------------------|
+> | `name`    |  required | JSON                    | New name of Author               |
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                            |
+> |---------------|-----------------------------------|-----------------------------------------------------|
+> | `200`         | `application/json`                | `{'message':'author updated'}` || `{'message':'Not allowed on that author'}`                      |
+> | `405`         | `application/json`                | `{'detail': 'Method "<method_name>" not allowed.'}` |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X PUT -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywhere.com/api/update/author/100"
+> ```
+
+</details>
+
+------------------------------------------------------------------------------------------------
+
+## Delete Quote and Author
+
+### Delete Author
+
+<details>
+ <summary><code>DELETE</code> <code>/api/delete/author/</code></summary>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> | `id`              | required  |   int          | Author's ID                         |
+
+##### Headers
+
+> | name            |  type     | data type               | description                       |
+> |-----------------|-----------|-------------------------|-----------------------------------|
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+
+
+##### Data
+
+> None
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                            |
+> |---------------|-----------------------------------|-----------------------------------------------------|
+> | `200`         | `application/json`                | `{'message':'author deleted'}` || `{'message':'Not allowed on that author'}`                      |
+> | `405`         | `application/json`                | `{'detail': 'Method "<method_name>" not allowed.'}` |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/author/100"
+> ```
+
+</details>
+
+### Delete Quote
+
+<details>
+ <summary><code>DELETE</code> <code>/api/delete/quote/</code></summary>
+
+##### Parameters
+
+> | name              |  type     | data type      | description                         |
+> |-------------------|-----------|----------------|-------------------------------------|
+> | `id`              | required  |   int          | Quote ID                         |
+
+##### Headers
+
+> | name            |  type     | data type               | description                       |
+> |-----------------|-----------|-------------------------|-----------------------------------|
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+
+
+##### Data
+
+> None
+
+
+##### Responses
+
+> | http code     | content-type                      | response                                            |
+> |---------------|-----------------------------------|-----------------------------------------------------|
+> | `200`         | `application/json`                | `{'message':'Quote Deleted'}` || `{'message':'Not allowed on that quote'}`                      |
+> | `405`         | `application/json`                | `{'detail': 'Method "<method_name>" not allowed.'}` |
+
+##### Example cURL
+
+> ```javascript
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/quote/120"
+> ```
+
+</details>
