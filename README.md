@@ -17,6 +17,6 @@ The quotes are sourced from a collection of inspiring and motivational quotes, m
 
 Start using the API, docs are [here](docs/api.md)
 
-## Contribution
-
+---
 #### [Contribution Guidelines](docs/CONTRIBUTE.md)
+---

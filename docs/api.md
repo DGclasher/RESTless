@@ -237,7 +237,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X DELETE -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" "https://restless.pythonanywhere.com/api/delete/author/100"
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/author/100"
 > ```
 
 </details>
@@ -275,7 +275,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X DELETE -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" "https://restless.pythonanywhere.com/api/delete/quote/120"
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/quote/120"
 > ```
 
 </details>
