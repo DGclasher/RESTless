@@ -92,16 +92,18 @@ DATABASES = {
 
     },
     'users': {
-        'NAME': 'users/users.db',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'USER': 'test_user',
-        'PASSWORD': 'test_password'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('USER_DB_NAME'),         
+        'USER': config('USER_DB_USER'),         
+        'PASSWORD': config('USER_DB_PASS'), 
+        'HOST': config('USER_DB_HOST'),          
     },
     'quotes': {
-        'NAME': 'quotes/quotes.db',
-        'ENGINE': 'django.db.backends.sqlite3',
-        'USER': 'quote_user',
-        'PASSWORD': 'quo_password'
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('QUOTES_DB_NAME'),         
+        'USER': config('QUOTES_DB_USER'),         
+        'PASSWORD': config('QUOTES_DB_PASS'), 
+        'HOST': config('QUOTES_DB_HOST'), 
     }
 }
 
@@ -153,8 +155,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/frontend/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
