@@ -1,9 +1,6 @@
 .env
 venv
 .vscode
-db.sqlite3
 .pytest_cache
 **/__pycache__
-**/users.db
-**/quotes.db
 backend/restless/static
