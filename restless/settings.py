@@ -87,9 +87,11 @@ DATABASE_ROUTERS = ('users.dbrouters.MyDBRouter',
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('USER_DB_NAME'),         
+        'USER': config('USER_DB_USER'),         
+        'PASSWORD': config('USER_DB_PASS'), 
+        'HOST': config('USER_DB_HOST'),    
     },
     'users': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
