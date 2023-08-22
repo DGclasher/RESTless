@@ -4,7 +4,7 @@
         {
             "src":"restless/wsgi.py",
             "use":"@vercel/python",
-            "config":{"maxLambdaSize":"15mb","runtime":"python3.9"}
+            "config":{ "maxLambdaSize":"15mb" }
         },
         {
             "src":"build_files.sh",
@@ -17,10 +17,6 @@
     "routes":[
         {
             "src":"/static/(.*)",
-            "dest":"/static/$1"
-        },
-        {
-            "src":"/frontend/static/(.*)",
             "dest":"/static/$1"
         },
         {
