@@ -11,7 +11,7 @@
 
 + Create python virtual environment
   ```
-  python3 -m venv venv
+  python3 -m venv venv && source venv/bin/activate
   ```
   ```
   source venv/bin/activate
@@ -21,11 +21,7 @@
   make setup
   ```
 
-+ Create a super user using `python3 manage.py createsuper user`, then in an `.env` file in the root directory of project, put the following
-  ```
-  TEST_USER=<a test user>
-  TEST_PASS=<password of test user>
-  ```
++ Create a super user using `python3 manage.py createsuper user`, then in an `.env` file in the root directory of project, refer `.env` file to [this](../.env.example)
 
 + Run server
   ```

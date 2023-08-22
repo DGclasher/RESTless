@@ -20,7 +20,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl "https://restless.pythonanywhere.com/api/fetch/quote/?format=json"
+>  curl "https://resttless.vercel.app/api/fetch/quote/?format=json"
 > ```
 
 </details>
@@ -45,12 +45,12 @@
 ##### Example cURL
 ##### For name
 > ```javascript
->  curl "https://restless.pythonanywhere.com/api/fetch/author/?name=Thomas+Edison&format=json"
+>  curl "https://resttless.vercel.app/api/fetch/author/?name=Thomas+Edison&format=json"
 > ```
 
 #### For ID
 > ```javascript
->  curl "https://restless.pythonanywhere.com/api/fetch/author/?id=5&format=json"
+>  curl "https://resttless.vercel.app/api/fetch/author/?id=5&format=json"
 > ```
 
 </details>
@@ -70,7 +70,7 @@
 
 ##### Example cURL
 > ```javascript
->  curl "https://restless.pythonanywhere.com/api/fetch/author/all/?format=json"
+>  curl "https://resttless.vercel.app/api/fetch/author/all/?format=json"
 > ```
 </details>
 
@@ -91,7 +91,7 @@
 
 > | name            |  type     | data type               | description                       |
 > |-----------------|-----------|-------------------------|-----------------------------------|
-> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://resttless.vercel.app/users/my_account"> here </a> |
 
 
 ##### Data
@@ -111,7 +111,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywhere.com/api/create/author/"
+>  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://resttless.vercel.app/api/create/author/"
 > ```
 
 </details>
@@ -129,7 +129,7 @@
 
 > | name            |  type     | data type               | description                       |
 > |-----------------|-----------|-------------------------|-----------------------------------|
-> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://resttless.vercel.app/users/my_account"> here </a> |
 
 
 ##### Data
@@ -151,7 +151,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d "{'quote': 'doing from client', 'author_id': 14, 'author': {'id': 14, 'name': 'unknown'}}" "https://restless.pythonanywhere.com/api/create/quote/"
+>  curl -X POST -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d "{'quote': 'doing from client', 'author_id': 14, 'author': {'id': 14, 'name': 'unknown'}}" "https://resttless.vercel.app/api/create/quote/"
 > ```
 
 </details>
@@ -175,7 +175,7 @@
 
 > | name            |  type     | data type               | description                       |
 > |-----------------|-----------|-------------------------|-----------------------------------|
-> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://resttless.vercel.app/users/my_account"> here </a> |
 
 
 ##### Data
@@ -195,7 +195,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X PUT -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://restless.pythonanywhere.com/api/update/author/100"
+>  curl -X PUT -H "Authorization: Token < your_auth_token >" -H "Content-Type: application/json" -d '{"name" : "Lucas"}' "https://resttless.vercel.app/api/update/author/100"
 > ```
 
 </details>
@@ -219,7 +219,7 @@
 
 > | name            |  type     | data type               | description                       |
 > |-----------------|-----------|-------------------------|-----------------------------------|
-> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://resttless.vercel.app/users/my_account"> here </a> |
 
 
 ##### Data
@@ -237,7 +237,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/author/100"
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://resttless.vercel.app/api/delete/author/100"
 > ```
 
 </details>
@@ -257,7 +257,7 @@
 
 > | name            |  type     | data type               | description                       |
 > |-----------------|-----------|-------------------------|-----------------------------------|
-> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://restless.pythonanywhere.com/users/my_account"> here </a> |
+> | `Authorization` | required  |                         | Pass the authorization token, get it from <a href="https://resttless.vercel.app/users/my_account"> here </a> |
 
 
 ##### Data
@@ -275,7 +275,7 @@
 ##### Example cURL
 
 > ```javascript
->  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://restless.pythonanywhere.com/api/delete/quote/120"
+>  curl -X DELETE -H "Authorization: Token < your_auth_token >" "https://resttless.vercel.app/api/delete/quote/120"
 > ```
 
 </details>
