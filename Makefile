@@ -1,8 +1,7 @@
 setup:
 	cd backend/restless
-	python3 -m pip install -r requirements.txt && \
-	python3 manage.py migrate --noinput && \
-	python3 manage.py migrate --run-syncdb
+	python -m pip install -r requirements.txt && \
+	python manage.py migrate --noinput && \
 
 serve:
 	cd backend/restless && \
