@@ -7,22 +7,28 @@
   ```
   git clone git@github.com:[YOUR USERNAME]/RESTless.git
   ```
-+ Create python virtual environment
++ Create python virtual environment and activate
   ```
   python3 -m venv venv && source venv/bin/activate
   ```
-+ Create a super user using `python3 manage.py createsuper user`, then in an `.env` file in the root directory of project, refer `.env` file to [this](../.env.example).
-+ Make the setup
++ Install dependencies
   ```
-  make setup
+  pip install -r requirements.txt
+  ```
+
++ Create a super user using `python3 manage.py createsuper user`, then in an `.env` file in the root directory of project, refer `.env` file to [this](../.env.example).
+  
++ Migrate DB
+  ```
+  python manage.py migrate
   ```
 + Run server
   ```
-  make serve
+  python manage.py runserver
   ```
 + To run tests
   ```
-  make test
+  cd tests; pytest -v
   ```
 
 #### API docs are available [here](./api.md)
